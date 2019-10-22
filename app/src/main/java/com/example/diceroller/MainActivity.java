@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
             congratstext.setText("Congratulations, you guessed correctly!");
         }else{
 
-            congratstext.setText("Incorrect guess, try again");
+            congratstext.setText("Incorrect guess, try again.");
 
         }
 
