@@ -11,11 +11,16 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.TextView;
+
 
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
+
+    int guessedNumber;
+    EditText guessInput;
 
 
     @Override
@@ -59,12 +64,28 @@ public class MainActivity extends AppCompatActivity {
 
     public void on_button_click(View view) {
 
+
         TextView tv = this.findViewById(R.id.numberTextView);
+        TextView congratstext = this.findViewById(R.id.textView2);
 
         Random r = new Random();
         int number = r.nextInt(6);
 
         tv.setText(Integer.toString(number));
+
+        guessInput = (EditText) this.findViewById(R.id.guessInput);
+
+        guessedNumber = Integer.valueOf(guessInput.getText().toString());
+
+        if (guessedNumber == number) {
+
+            congratstext.setText("Congratulations, you guessed correctly!");
+        }else{
+
+            congratstext.setText("Incorrect guess, try again");
+
+        }
+
 
     }
 }
