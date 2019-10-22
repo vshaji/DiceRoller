@@ -20,7 +20,9 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     int guessedNumber;
+    int scorenumber = 0;
     EditText guessInput;
+    EditText textView4;
 
 
     @Override
@@ -77,9 +79,12 @@ public class MainActivity extends AppCompatActivity {
 
         guessedNumber = Integer.valueOf(guessInput.getText().toString());
 
-        if (guessedNumber == number) {
+        TextView score = this.findViewById(R.id.textView4);
 
+        if (guessedNumber == number) {
             congratstext.setText("Congratulations, you guessed correctly!");
+            scorenumber ++;
+            score.setText(Integer.toString(scorenumber));
         }else{
 
             congratstext.setText("Incorrect guess, try again.");
